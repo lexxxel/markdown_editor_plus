@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:markdown_editor_plus/markdown_editor_plus.dart';
+import '../l10n/generated/markdown_editor_plus_localizations.dart';
 import '../src/toolbar.dart';
 import 'modal_select_emoji.dart';
 import 'modal_input_url.dart';
@@ -20,6 +20,7 @@ class MarkdownToolbar extends StatelessWidget {
   final bool showEmojiSelection;
   final VoidCallback? onActionCompleted;
   final String? markdownSyntax;
+  final VoidCallback? onClearAction;
 
   const MarkdownToolbar({
     super.key,
@@ -35,6 +36,7 @@ class MarkdownToolbar extends StatelessWidget {
     this.onActionCompleted,
     this.showPreviewButton = true,
     this.showEmojiSelection = true,
+    this.onClearAction,
   });
 
   @override
@@ -63,6 +65,7 @@ class MarkdownToolbar extends StatelessWidget {
               onPressedButton: () {
                 controller.clear();
                 onActionCompleted?.call();
+                onClearAction?.call();
               },
               tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_clear_action,
             ),

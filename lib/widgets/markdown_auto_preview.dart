@@ -315,6 +315,7 @@ class _MarkdownAutoPreviewState extends State<MarkdownAutoPreview> {
                   emojiConvert: widget.emojiConvert,
                   toolbarBackground: widget.toolbarBackground,
                   expandableBackground: widget.expandableBackground,
+                  onClearAction: () => widget.onChanged?.call(""),
                 )
             ],
           );
