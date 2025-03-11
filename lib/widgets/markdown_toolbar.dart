@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:markdown_editor_plus/markdown_editor_plus.dart';
 import '../src/toolbar.dart';
 import 'modal_select_emoji.dart';
 import 'modal_input_url.dart';
@@ -52,7 +53,7 @@ class MarkdownToolbar extends StatelessWidget {
                 key: const ValueKey<String>("toolbar_view_item"),
                 icon: FontAwesomeIcons.eye,
                 onPressedButton: onPreviewChanged,
-                tooltip: 'Show/Hide markdown preview',
+                tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_view_item,
               ),
 
             // Clear the field
@@ -63,7 +64,7 @@ class MarkdownToolbar extends StatelessWidget {
                 controller.clear();
                 onActionCompleted?.call();
               },
-              tooltip: 'Clear the text field',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_clear_action,
             ),
 
             // Reset the text field
@@ -76,7 +77,7 @@ class MarkdownToolbar extends StatelessWidget {
                   onActionCompleted?.call();
                 }
               },
-              tooltip: 'Reset the text field to specified format',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_reset_action,
             ),
 
             // select single line
@@ -87,13 +88,13 @@ class MarkdownToolbar extends StatelessWidget {
                 toolbar.selectSingleLine.call();
                 onActionCompleted?.call();
               },
-              tooltip: 'Select single line',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_selection_action,
             ),
             // bold
             ToolbarItem(
               key: const ValueKey<String>("toolbar_bold_action"),
               icon: FontAwesomeIcons.bold,
-              tooltip: 'Make text bold',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_bold_action,
               onPressedButton: () {
                 toolbar.action("**", "**");
                 onActionCompleted?.call();
@@ -103,7 +104,7 @@ class MarkdownToolbar extends StatelessWidget {
             ToolbarItem(
               key: const ValueKey<String>("toolbar_italic_action"),
               icon: FontAwesomeIcons.italic,
-              tooltip: 'Make text italic',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_italic_action,
               onPressedButton: () {
                 toolbar.action("_", "_");
                 onActionCompleted?.call();
@@ -113,7 +114,7 @@ class MarkdownToolbar extends StatelessWidget {
             ToolbarItem(
               key: const ValueKey<String>("toolbar_strikethrough_action"),
               icon: FontAwesomeIcons.strikethrough,
-              tooltip: 'Strikethrough',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_strikethrough_action,
               onPressedButton: () {
                 toolbar.action("~~", "~~");
                 onActionCompleted?.call();
@@ -124,13 +125,13 @@ class MarkdownToolbar extends StatelessWidget {
               key: const ValueKey<String>("toolbar_heading_action"),
               icon: FontAwesomeIcons.heading,
               isExpandable: true,
-              tooltip: 'Insert Heading',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_heading_action,
               expandableBackground: expandableBackground,
               items: [
                 ToolbarItem(
                   key: const ValueKey<String>("h1"),
                   icon: "H1",
-                  tooltip: 'Insert Heading 1',
+                  tooltip: MarkdownEditorPlusLocalizations.of(context).h1,
                   onPressedButton: () {
                     toolbar.action("# ", "");
                     onActionCompleted?.call();
@@ -139,7 +140,7 @@ class MarkdownToolbar extends StatelessWidget {
                 ToolbarItem(
                   key: const ValueKey<String>("h2"),
                   icon: "H2",
-                  tooltip: 'Insert Heading 2',
+                  tooltip: MarkdownEditorPlusLocalizations.of(context).h2,
                   onPressedButton: () {
                     toolbar.action("## ", "");
                     onActionCompleted?.call();
@@ -148,7 +149,7 @@ class MarkdownToolbar extends StatelessWidget {
                 ToolbarItem(
                   key: const ValueKey<String>("h3"),
                   icon: "H3",
-                  tooltip: 'Insert Heading 3',
+                  tooltip: MarkdownEditorPlusLocalizations.of(context).h3,
                   onPressedButton: () {
                     toolbar.action("### ", "");
                     onActionCompleted?.call();
@@ -157,7 +158,7 @@ class MarkdownToolbar extends StatelessWidget {
                 ToolbarItem(
                   key: const ValueKey<String>("h4"),
                   icon: "H4",
-                  tooltip: 'Insert Heading 4',
+                  tooltip: MarkdownEditorPlusLocalizations.of(context).h4,
                   onPressedButton: () {
                     toolbar.action("#### ", "");
                     onActionCompleted?.call();
@@ -166,11 +167,21 @@ class MarkdownToolbar extends StatelessWidget {
                 // Heading 5 onwards has same font
               ],
             ),
+            // order list
+            ToolbarItem(
+              key: const ValueKey<String>("toolbar_order_list_action"),
+              icon: FontAwesomeIcons.listOl,
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_order_list_action,
+              onPressedButton: () {
+                toolbar.action("1. ", "");
+                onActionCompleted?.call();
+              },
+            ),
             // unorder list
             ToolbarItem(
               key: const ValueKey<String>("toolbar_unorder_list_action"),
               icon: FontAwesomeIcons.listUl,
-              tooltip: 'Unordered list',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_unorder_list_action,
               onPressedButton: () {
                 toolbar.action("* ", "");
                 onActionCompleted?.call();
@@ -182,11 +193,12 @@ class MarkdownToolbar extends StatelessWidget {
               icon: FontAwesomeIcons.listCheck,
               isExpandable: true,
               expandableBackground: expandableBackground,
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_checkbox_list_action,
               items: [
                 ToolbarItem(
                   key: const ValueKey<String>("checkbox"),
                   icon: FontAwesomeIcons.solidSquareCheck,
-                  tooltip: 'Checked checkbox',
+                  tooltip: MarkdownEditorPlusLocalizations.of(context).checkbox,
                   onPressedButton: () {
                     toolbar.action("- [x] ", "");
                     onActionCompleted?.call();
@@ -195,7 +207,7 @@ class MarkdownToolbar extends StatelessWidget {
                 ToolbarItem(
                   key: const ValueKey<String>("uncheckbox"),
                   icon: FontAwesomeIcons.square,
-                  tooltip: 'Unchecked checkbox',
+                  tooltip: MarkdownEditorPlusLocalizations.of(context).uncheckbox,
                   onPressedButton: () {
                     toolbar.action("- [ ] ", "");
                     onActionCompleted?.call();
@@ -208,7 +220,7 @@ class MarkdownToolbar extends StatelessWidget {
               ToolbarItem(
                 key: const ValueKey<String>("toolbar_emoji_action"),
                 icon: FontAwesomeIcons.faceSmile,
-                tooltip: 'Select emoji',
+                tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_emoji_action,
                 onPressedButton: () async {
                   await _showModalSelectEmoji(context, controller.selection);
                 },
@@ -217,13 +229,12 @@ class MarkdownToolbar extends StatelessWidget {
             ToolbarItem(
               key: const ValueKey<String>("toolbar_link_action"),
               icon: FontAwesomeIcons.link,
-              tooltip: 'Add hyperlink',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_link_action,
               onPressedButton: () async {
                 if (toolbar.hasSelection) {
-                  toolbar.action("[enter link description here](", ")");
+                  toolbar.action(MarkdownEditorPlusLocalizations.of(context).toolbar_link_action_template, ")");
                 } else {
-                  await _showModalInputUrl(context,
-                      "[enter link description here](", controller.selection);
+                  await _showModalInputUrl(context, MarkdownEditorPlusLocalizations.of(context).toolbar_link_action_template, controller.selection);
                 }
 
                 onActionCompleted?.call();
@@ -233,14 +244,14 @@ class MarkdownToolbar extends StatelessWidget {
             ToolbarItem(
               key: const ValueKey<String>("toolbar_image_action"),
               icon: FontAwesomeIcons.image,
-              tooltip: 'Add image',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_image_action,
               onPressedButton: () async {
                 if (toolbar.hasSelection) {
-                  toolbar.action("![enter image description here](", ")");
+                  toolbar.action(MarkdownEditorPlusLocalizations.of(context).toolbar_image_action_template, ")");
                 } else {
                   await _showModalInputUrl(
                     context,
-                    "![enter image description here](",
+                    MarkdownEditorPlusLocalizations.of(context).toolbar_image_action_template,
                     controller.selection,
                   );
                 }
@@ -252,7 +263,7 @@ class MarkdownToolbar extends StatelessWidget {
             ToolbarItem(
               key: const ValueKey<String>("toolbar_blockquote_action"),
               icon: FontAwesomeIcons.quoteLeft,
-              tooltip: 'Blockquote',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_blockquote_action,
               onPressedButton: () {
                 toolbar.action("> ", "");
                 onActionCompleted?.call();
@@ -262,7 +273,7 @@ class MarkdownToolbar extends StatelessWidget {
             ToolbarItem(
               key: const ValueKey<String>("toolbar_code_action"),
               icon: FontAwesomeIcons.code,
-              tooltip: 'Code syntax/font',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_code_action,
               onPressedButton: () {
                 toolbar.action("`", "`");
                 onActionCompleted?.call();
@@ -272,7 +283,7 @@ class MarkdownToolbar extends StatelessWidget {
             ToolbarItem(
               key: const ValueKey<String>("toolbar_line_action"),
               icon: FontAwesomeIcons.rulerHorizontal,
-              tooltip: 'Add line',
+              tooltip: MarkdownEditorPlusLocalizations.of(context).toolbar_line_action,
               onPressedButton: () {
                 toolbar.action("\n___\n", "");
                 onActionCompleted?.call();
@@ -285,8 +296,7 @@ class MarkdownToolbar extends StatelessWidget {
   }
 
   // Show modal to select emoji
-  Future<dynamic> _showModalSelectEmoji(
-      BuildContext context, TextSelection selection) {
+  Future<dynamic> _showModalSelectEmoji(BuildContext context, TextSelection selection) {
     return showModalBottomSheet(
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(

@@ -27,8 +27,8 @@ class ToolbarItem extends StatelessWidget {
             type: MaterialType.transparency,
             child: IconButton(
               onPressed: onPressedButton,
-              splashColor: Colors.teal.withOpacity(0.4),
-              highlightColor: Colors.teal.withOpacity(0.4),
+              splashColor: Colors.teal.withAlpha(102),
+              highlightColor: Colors.teal.withAlpha(102),
               icon: icon is String
                   ? Text(
                       icon,
@@ -45,17 +45,20 @@ class ToolbarItem extends StatelessWidget {
             child: Expandable(
               key: const Key("list_button"),
               collapsed: ExpandableButton(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: icon is String
-                      ? Text(
-                          icon,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        )
-                      : FaIcon(icon, size: 16),
+                child: Tooltip(
+                  message: tooltip,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: icon is String
+                        ? Text(
+                            icon,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          )
+                        : FaIcon(icon, size: 16),
+                  ),
                 ),
               ),
               expanded: Container(

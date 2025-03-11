@@ -3,14 +3,15 @@
 This is a fork of [simple_markdown_editor by zahnia88](https://github.com/zahniar88/simple_markdown_editor)
 with contributions from [fossfreaks](https://github.com/fossfreaks)
 
-Simple markdown editor library For flutter. 
+Simple markdown editor library For flutter.
 For demo video, you can see it at this url [Demo](https://youtu.be/aYBeXXDoNPo)
 
-
 ## Features
+
 - ✅ Convert to Bold, Italic, Strikethrough
 - ✅ Convert to Code, Quote, Links
 - ✅ Convert to Heading (H1, H2, H3).
+- ✅ Convert to order list
 - ✅ Convert to unorder list and checkbox list
 - ✅ Support multiline convert
 - ✅ Support auto convert emoji
@@ -21,10 +22,25 @@ Add dependencies to your `pubspec.yaml`
 
 ```yaml
 dependencies:
-    markdown_editor_plus: ^latest
+  markdown_editor_plus: ^latest
 ```
 
 Run `flutter pub get` to install.
+
+Add the localization delegate:
+
+```dart
+return MaterialApp(
+    localizationsDelegates: [
+        MarkdownEditorPlusLocalizations.delegate, // <- Add this line
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+    ],
+    home: HomeScreen(),
+);
+
+```
 
 ## How it works
 
@@ -96,4 +112,4 @@ MarkdownAutoPreview(
 )
 ```
 
-___
+---

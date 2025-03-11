@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:markdown_editor_plus/src/toolbar.dart';
 
+import '../l10n/generated/markdown_editor_plus_localizations.dart';
+
 class ModalInputUrl extends StatelessWidget {
   const ModalInputUrl({
     super.key,
@@ -27,10 +29,10 @@ class ModalInputUrl extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
-              "Please provide a URL here.",
+              MarkdownEditorPlusLocalizations.of(context).provide_url,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -41,9 +43,9 @@ class ModalInputUrl extends StatelessWidget {
             autocorrect: false,
             autofocus: true,
             cursorRadius: const Radius.circular(16),
-            decoration: const InputDecoration(
-              hintText: "Input your url.",
-              helperText: "example: https://example.com",
+            decoration: InputDecoration(
+              hintText: MarkdownEditorPlusLocalizations.of(context).input_your_url,
+              helperText: MarkdownEditorPlusLocalizations.of(context).input_your_url_helper,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(16.0)),
               ),
@@ -57,19 +59,19 @@ class ModalInputUrl extends StatelessWidget {
               if (value.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: const Text(
-                      "Please input url",
+                    content: Text(
+                      MarkdownEditorPlusLocalizations.of(context).input_your_url,
                       style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
-                    backgroundColor: Colors.red.withOpacity(0.8),
+                    backgroundColor: Colors.red.withAlpha(204),
                     duration: const Duration(milliseconds: 700),
                   ),
                 );
               } else {
                 if (!value.contains(RegExp(r'https?:\/\/(www.)?([^\s]+)'))) {
-                  value = "http://$value";
+                  value = "https://$value";
                 }
                 toolbar.action(
                   "$leftText$value)",

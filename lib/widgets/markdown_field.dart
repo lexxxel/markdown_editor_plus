@@ -17,8 +17,7 @@ class MarkdownField extends StatelessWidget {
     this.maxLines,
     this.minLines,
     this.expands = false,
-    this.decoration =
-        const InputDecoration(hintText: 'Type here...', isDense: true),
+    this.decoration = const InputDecoration(hintText: 'Type here...', isDense: true),
     this.padding = const EdgeInsets.all(8),
   });
 
@@ -140,12 +139,6 @@ class MarkdownField extends StatelessWidget {
         inputFormatters: [
           if (emojiConvert) EmojiInputFormatter(),
         ],
-        toolbarOptions: const ToolbarOptions(
-          copy: true,
-          paste: true,
-          cut: true,
-          selectAll: true,
-        ),
         decoration: decoration,
       ),
     );

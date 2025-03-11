@@ -2,14 +2,14 @@ name: markdown_editor_plus
 description: A TextField Widget that allow you to convert easily what's in the
   TextField to Markdown with custom toolbar support.
 
-version: 0.2.15
+version: 1.0.0
 
 homepage: https://github.com/OmkarDabade/markdown_editor_plus
 repository: https://github.com/OmkarDabade/markdown_editor_plus
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.10.0"
+  sdk: ^3.6.1
+  flutter: ">=3.20.0"
 
 dependencies:
   flutter:
@@ -18,10 +18,14 @@ dependencies:
   markdown: ^7.2.2
   flutter_markdown: ^0.7.2+1
   font_awesome_flutter: ^10.7.0
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
-flutter: null
+flutter:
+  generate: true
