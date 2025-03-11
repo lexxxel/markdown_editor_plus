@@ -1,12 +1,12 @@
 {
   "@@locale": "de",
-  "toolbar_view_item": "Markdown Preview anzeigen/verstecken",
-  "toolbar_clear_action": "Text Feld löschen",
-  "toolbar_reset_action": "Text Feld auf Formatierung zurücksetzen",
-  "toolbar_selection_action": "Zeile selektieren",
+  "toolbar_view_item": "Markdown Vorschau anzeigen/verstecken",
+  "toolbar_clear_action": "Textfeld löschen",
+  "toolbar_reset_action": "Textfeld auf Formatierung zurücksetzen",
+  "toolbar_selection_action": "Zeile auswählen",
   "toolbar_bold_action": "Text Fett",
-  "toolbar_italic_action": "Text Italic",
-  "toolbar_strikethrough_action": "Durchstreichen",
+  "toolbar_italic_action": "Text kursiv",
+  "toolbar_strikethrough_action": "Text durchgestrichen",
   "toolbar_heading_action": "Überschrift einfügen",
   "h1": "Überschrift 1 einfügen",
   "h2": "Überschrift 2 einfügen",
@@ -25,7 +25,7 @@
   "toolbar_blockquote_action": "Blockzitat",
   "toolbar_code_action": "Code-Block einfügen",
   "toolbar_line_action": "Trennlinie einfügen",
-  "provide_url": "Bitte geben Sie die URL an.",
+  "provide_url": "Bitte geben Sie eine URL an.",
   "input_your_url": "URL eingeben.",
   "input_your_url_helper": "Beispiel: https://example.com"
 }

@@ -14,7 +14,7 @@
   "h4": "Insert Heading 4",
   "toolbar_order_list_action": "Ordered list",
   "toolbar_unorder_list_action": "Unordered list",
-  "toolbar_checkbox_list_action": "checkbox list",
+  "toolbar_checkbox_list_action": "Checkbox list",
   "checkbox": "Checked checkbox",
   "uncheckbox": "Unchecked checkbox",
   "toolbar_emoji_action": "Select emoji",
@@ -27,5 +27,5 @@
   "toolbar_line_action": "Add line",
   "provide_url": "Please provide a URL here.",
   "input_your_url": "Input your url.",
-  "input_your_url_helper": "example: https://example.com"
+  "input_your_url_helper": "Example: https://example.com"
 }
