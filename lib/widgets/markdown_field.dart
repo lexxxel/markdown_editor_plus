@@ -112,8 +112,37 @@ class MarkdownField extends StatelessWidget {
   /// Add label, hint etc
   final InputDecoration decoration;
 
+  /// The maximum number of lines to show at one time, wrapping if necessary.
+  ///
+  /// This affects the height of the field itself and does not limit the number of lines that can be entered into the field.
+  ///
+  /// If this is 1 (the default), the text will not wrap, but will scroll horizontally instead.
+  ///
+  /// If this is null, there is no limit to the number of lines, and the text container will start with enough vertical space for one line and automatically grow to accommodate additional lines as they are entered, up to the height of its constraints.
+  ///
+  /// If this is not null, the value must be greater than zero, and it will lock the input to the given number of lines and take up enough horizontal space to accommodate that number of lines. Setting [minLines] as well allows the input to grow and shrink between the indicated range.
   final int? maxLines;
+
+  /// The minimum number of lines to occupy when the content spans fewer lines.
+  ///
+  /// This affects the height of the field itself and does not limit the number of lines that can be entered into the field.
+  ///
+  /// If this is null (default), text container starts with enough vertical space for one line and grows to accommodate additional lines as they are entered.
+  ///
+  /// This can be used in combination with [maxLines] for a varying set of behaviors.
+  ///
+  /// If the value is set, it must be greater than zero. If the value is greater than 1, [maxLines] should also be set to either null or greater than this value.
+  ///
+  /// When [maxLines] is set as well, the height will grow between the indicated range of lines. When [maxLines] is null, it will grow as high as needed, starting from [minLines].
   final int? minLines;
+
+  /// Whether this widget's height will be sized to fill its parent.
+  ///
+  /// If set to true and wrapped in a parent widget like [Expanded] or [SizedBox], the input will expand to fill the parent.
+  ///
+  /// [maxLines] and [minLines] must both be null when this is set to true, otherwise an error is thrown.
+  ///
+  /// Defaults to false.
   final bool expands;
 
   @override
